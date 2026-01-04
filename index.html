@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kastamonu Rent A Car | Abdurrahman Paşa</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+--primary:#0f2a44;
+--secondary:#f5b400;
+--bg:#f4f6f8;
+--text:#1c1c1c;
+--card:#ffffff;
+}
+
+body.dark{
+--primary:#0b1c2e;
+--bg:#0f1720;
+--text:#f1f1f1;
+--card:#182230;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Tahoma,sans-serif}
+body{background:var(--bg);color:var(--text);transition:.3s}
+
+/* HEADER */
+header{
+background:var(--primary);
+color:white;
+padding:18px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:10;
+}
+
+nav a{
+color:white;
+margin-left:25px;
+text-decoration:none;
+font-weight:500;
+}
+
+/* HERO */
+.hero{
+position:relative;
+background:linear-gradient(rgba(15,42,68,.85),rgba(15,42,68,.85)),
+url('https://images.unsplash.com/photo-1527383418406-f85a3b146499?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover;
+padding:130px 60px;
+color:white;
+overflow:hidden;
+}
+
+.hero h2{
+font-size:48px;
+max-width:700px;
+}
+
+.hero h2 strong{color:var(--secondary)}
+
+.hero p{
+margin:20px 0 35px;
+max-width:600px;
+font-size:18px;
+}
+
+.hero button{
+padding:15px 40px;
+background:var(--secondary);
+border:none;
+font-weight:700;
+cursor:pointer;
+border-radius:6px;
+}
+
+/* HERO TEXT */
+.hero-overlay-text{
+position:absolute;
+right:5%;
+bottom:10%;
+font-size:120px;
+font-weight:900;
+color:rgba(255,255,255,0.06);
+text-align:right;
+line-height:1;
+letter-spacing:6px;
+user-select:none;
+}
+
+.hero-overlay-text span{
+display:block;
+font-size:28px;
+letter-spacing:3px;
+margin-top:10px;
+}
+
+/* SECTIONS */
+.section{padding:90px 60px}
+.section h3{text-align:center;font-size:36px;margin-bottom:60px}
+
+/* CARS */
+.cars{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px;
+}
+
+.car{
+background:var(--card);
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+transition:.3s;
+}
+
+.car:hover{transform:translateY(-8px)}
+.car img{width:100%;height:200px;object-fit:cover}
+.car-content{padding:22px}
+.price{color:var(--secondary);font-weight:700;font-size:20px}
+
+/* COMMENTS */
+.comments{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.comment{
+background:var(--card);
+padding:30px;
+border-radius:14px;
+box-shadow:0 12px 25px rgba(0,0,0,.12);
+}
+
+.comment i{color:var(--secondary);font-size:20px;margin-bottom:10px}
+
+/* RESERVATION */
+.reservation{background:var(--primary);color:white}
+
+form{
+max-width:900px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+}
+
+input,select{
+padding:15px;
+border:none;
+border-radius:6px;
+}
+
+form button{
+grid-column:1/-1;
+padding:18px;
+background:var(--secondary);
+border:none;
+font-weight:700;
+font-size:18px;
+cursor:pointer;
+}
+
+/* MAP */
+.map-box{
+max-width:1100px;
+margin:auto;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 20px 40px rgba(0,0,0,.2);
+}
+
+/* FOOTER */
+footer{
+background:#0b1f33;
+color:white;
+padding:40px;
+text-align:center;
+}
+
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:22px;
+right:22px;
+background:#25d366;
+color:white;
+font-size:26px;
+padding:16px;
+border-radius:50%;
+box-shadow:0 10px 25px rgba(0,0,0,.3);
+text-decoration:none;
+}
+
+/* DARK BUTTON */
+.darkbtn{
+position:fixed;
+top:90px;
+right:22px;
+background:var(--secondary);
+border:none;
+padding:10px 14px;
+font-weight:700;
+cursor:pointer;
+border-radius:6px;
+}
+
+@media(max-width:900px){
+header,.hero,.section{padding:25px}
+.hero h2{font-size:34px}
+.hero-overlay-text{font-size:60px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Kastamonu Rent A Car</h1>
+<nav>
+<a href="#cars">Araçlar</a>
+<a href="#comments">Yorumlar</a>
+<a href="#rez">Rezervasyon</a>
+<a href="#map">Konum</a>
+</nav>
+</header>
+
+<button class="darkbtn" onclick="toggleDark()">🌙 Dark</button>
+
+<section class="hero">
+<h2>
+Kastamonu’nun<br>
+<strong>Premium Rent A Car</strong> Deneyimi
+</h2>
+<p>Abdurrahman Paşa bölgesinde güvenilir, bakımlı ve yeni model araçlar.</p>
+<button onclick="document.getElementById('rez').scrollIntoView({behavior:'smooth'})">Hemen Kirala</button>
+
+<div class="hero-overlay-text">
+KASTAMONU<br>RENT A CAR
+<span>Abdurrahman Paşa</span>
+</div>
+</section>
+
+<section id="cars" class="section">
+<h3>Araç Filomuz</h3>
+<div class="cars">
+
+<div class="car"><img src="https://images.unsplash.com/photo-1502877338535-766e1452684a"><div class="car-content"><h4>Mercedes AMG GT</h4><p>Spor • Otomatik</p><div class="price">... / Gün</div></div></div>
+
+<div class="car"><img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a"><div class="car-content"><h4>Hyundai Elantra</h4><p>Sedan • Otomatik</p><div class="price">... / Gün</div></div></div>
+
+<div class="car"><img src="https://images.unsplash.com/photo-1611016186353-9af58c69a533"><div class="car-content"><h4>Ford Mustang</h4><p>Muscle • Otomatik</p><div class="price">... / Gün</div></div></div>
+
+<div class="car"><img src="https://ares.shiftdelete.net/2021/10/yeni-fiat-egea-sedan-fiyat-listesi.jpg"><div class="car-content"><h4>Fiat Egea</h4><p>Ekonomik • Manuel</p><div class="price">... / Gün</div></div></div>
+
+<div class="car"><img src="https://i.pinimg.com/736x/00/f4/2d/00f42d114bbc853881055306ccf240e5.jpg"><div class="car-content"><h4>Renault Clio</h4><p>Şehir İçi • Otomatik</p><div class="price">... / Gün</div></div></div>
+
+<div class="car"><img src="https://i.pinimg.com/736x/45/d6/92/45d69298c3ddf8fc2f841e3263a5479f.jpg"><div class="car-content"><h4>Volkswagen Passat</h4><p>Konfor • Otomatik</p><div class="price">... / Gün</div></div></div>
+
+</div>
+</section>
+
+<section id="comments" class="section">
+<h3>Müşteri Yorumları</h3>
+<div class="comments">
+<div class="comment"><i class="fa-solid fa-star"></i><p>“Araçlar tertemiz, hizmet kusursuz.”</p><strong>Berkehan T.</strong></div>
+<div class="comment"><i class="fa-solid fa-star"></i><p>“Kastamonu’da tek tercihim.”</p><strong>Nil A.</strong></div>
+<div class="comment"><i class="fa-solid fa-star"></i><p>“WhatsApp’tan 2 dakikada kiraladım.”</p><strong>Melike Ö.</strong></div>
+</div>
+</section>
+
+<section id="rez" class="section reservation">
+<h3>Online Rezervasyon</h3>
+<form onsubmit="sendWhatsApp();return false;">
+<input id="name" placeholder="Ad Soyad" required>
+<input id="phone" placeholder="Telefon" required>
+<input id="start" type="date" required>
+<input id="end" type="date" required>
+<select id="car">
+<option>Mercedes AMG GT</option>
+<option>Hyundai Elantra</option>
+<option>Ford Mustang</option>
+<option>Fiat Egea</option>
+<option>Renault Clio</option>
+<option>Volkswagen Passat</option>
+</select>
+<button>WhatsApp’tan Gönder</button>
+</form>
+</section>
+
+<section id="map" class="section">
+<h3>Ofis Konumumuz</h3>
+<div class="map-box">
+<iframe src="https://www.google.com/maps?q=Abdurrahman%20Pa%C5%9Fa%20Kastamonu&output=embed"
+width="100%" height="420" style="border:0;" loading="lazy"></iframe>
+</div>
+</section>
+
+<footer>
+<p>📍 Abdurrahman Paşa / Kastamonu</p>
+<p>Kurucu: <strong>...</strong></p>
+<p>© 2026 Kastamonu Rent A Car</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/905555555555" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+function toggleDark(){
+document.body.classList.toggle("dark");
+}
+
+function sendWhatsApp(){
+let msg=`Merhaba, rezervasyon yapmak istiyorum.%0A
+Ad Soyad: ${name.value}%0A
+Telefon: ${phone.value}%0A
+Araç: ${car.value}%0A
+Tarih: ${start.value} - ${end.value}`;
+window.open("https://wa.me/zzz?text="+msg,"_blank");
+}
+</script>
+
+</body>
+</html>
